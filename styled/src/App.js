@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 
+import "./styles/reset.css";
 import TodoList from "./components/Button";
 import ThemeSwitcher from "./components/ThemeSwitcher";
 
 import * as themes from "./styles/index";
 import ThemeContext from "./styles/context";
+import { ButtonPrimary } from "./styles/styles";
 
 function App() {
   const [tema, setTema] = useState(themes.dark);
-
+  useEffect(() => {});
   function toggleTheme() {
     if (tema == themes.dark) {
       setTema(themes.light);
@@ -25,6 +27,8 @@ function App() {
           {tema => (
             <ThemeProvider theme={tema}>
               <TodoList />
+              <ButtonPrimary>Teste</ButtonPrimary>
+              <ButtonPrimary>Teste</ButtonPrimary>
             </ThemeProvider>
           )}
         </ThemeContext.Consumer>
